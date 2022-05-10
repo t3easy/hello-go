@@ -22,3 +22,5 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ```
    ~/go/bin/cobra-cli init
    ```
+1. Add functionality of previous `main.go` to `cmd/root.go`,  
+   move `main_test.go` to `cmd/root_test.go`
