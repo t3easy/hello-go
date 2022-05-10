@@ -34,3 +34,8 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ```
    go mod tidy
    ```
+1. Add `serve` command and run it
+   ```
+   ~/go/bin/cobra-cli add serve
+   go run main.go serve
+   ````
