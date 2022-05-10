@@ -13,3 +13,7 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ```
    go test ./...
    ```
+1. Install cobra-cli
+   ```
+   go install github.com/spf13/cobra-cli@latest
+   ```
