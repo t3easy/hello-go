@@ -24,3 +24,8 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ```
 1. Add functionality of previous `main.go` to `cmd/root.go`,  
    move `main_test.go` to `cmd/root_test.go`
+1. Test and run
+   ```
+   go test ./...
+   go run main.go
+   ```
