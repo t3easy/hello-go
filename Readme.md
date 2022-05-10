@@ -17,3 +17,4 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ```
    go install github.com/spf13/cobra-cli@latest
    ```
+1. Rename main.go, to temp.go

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func temp() {
 	var message string
 	message = getMessage()
 
