@@ -53,3 +53,7 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    Open http://127.0.0.1:4242/  
    Open http://127.0.0.1:4242/FooBar
 1. Add `--port` flag to serve command
+1. Build binary
+   ```
+   go build -o bin
+   ```
