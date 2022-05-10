@@ -21,6 +21,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/t3easy/hello-go/internal"
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -39,7 +40,7 @@ to quickly create a Cobra application.`,
 		// has an action associated with it:
 		Run: func(cmd *cobra.Command, args []string) {
 			var message string
-			message = getMessage(name)
+			message = internal.GetMessage(name)
 
 			fmt.Println(message)
 		},
@@ -65,8 +66,4 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().StringVar(&name, "name", "Go", "Name to be greeted")
-}
-
-func getMessage(n string) string {
-	return fmt.Sprintf("Hello %s!", n)
 }

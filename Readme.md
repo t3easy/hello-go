@@ -39,3 +39,10 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    ~/go/bin/cobra-cli add serve
    go run main.go serve
    ````
+1. Move `getMessage` function to `github.com/t3easy/hello-go/internal` with capital `G`!
+   As we will need it in the `serve` cmd, too.
+   Run tests to check if nothing is broken.
+   ```
+   go test ./...
+   go run main.go --name FooBar
+   ```
