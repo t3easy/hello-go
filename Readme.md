@@ -30,3 +30,7 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    go run main.go
    ```
 1. Add `--name` parameter that defaults to `Go`
+1. Module housekeeping
+   ```
+   go mod tidy
+   ```
