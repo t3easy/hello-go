@@ -18,24 +18,30 @@ package cmd
 
 import (
 	"fmt"
+	"net/http"
+	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/t3easy/hello-go/internal"
 )
 
 // serveCmd represents the serve command
-var serveCmd = &cobra.Command{
-	Use:   "serve",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
+var (
+	serveCmd = &cobra.Command{
+		Use:   "serve",
+		Short: "A brief description of your command",
+		Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("serve called")
-	},
-}
+		Run: func(cmd *cobra.Command, args []string) {
+			http.HandleFunc("/", handleRoot)
+			http.ListenAndServe(":4242", nil)
+		},
+	}
+)
 
 func init() {
 	rootCmd.AddCommand(serveCmd)
@@ -49,4 +55,16 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// serveCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func handleRoot(w http.ResponseWriter, req *http.Request) {
+	var (
+		name string = "Go"
+		n    string
+	)
+	n = strings.TrimPrefix(req.URL.Path, "/")
+	if n != "" {
+		name = n
+	}
+	fmt.Fprintf(w, internal.GetMessage(name))
 }

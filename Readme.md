@@ -46,3 +46,9 @@ Example of the talk https://t3easy.github.io/talks/go-fundamentals/
    go test ./...
    go run main.go --name FooBar
    ```
+1. Add http server for the "API"
+   ```
+   go run main.go serve
+   ```
+   Open http://127.0.0.1:4242/  
+   Open http://127.0.0.1:4242/FooBar
