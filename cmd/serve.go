@@ -19,6 +19,7 @@ package cmd
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -27,6 +28,7 @@ import (
 
 // serveCmd represents the serve command
 var (
+	port     int
 	serveCmd = &cobra.Command{
 		Use:   "serve",
 		Short: "A brief description of your command",
@@ -38,7 +40,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			http.HandleFunc("/", handleRoot)
-			http.ListenAndServe(":4242", nil)
+			http.ListenAndServe(":"+strconv.Itoa(port), nil)
 		},
 	}
 )
@@ -55,6 +57,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// serveCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	serveCmd.Flags().IntVar(&port, "port", 4242, "Port to serve")
 }
 
 func handleRoot(w http.ResponseWriter, req *http.Request) {
